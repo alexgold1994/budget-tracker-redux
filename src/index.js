@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import budgetStore from './store/budgetStore';
 import {addExpense, removeExpense, editExpense} from './actions/budgetActions';
+import {setKeywordFilter} from './actions/filterActions';
 
 const store = budgetStore();
 
@@ -18,6 +19,9 @@ const ex2 = store.dispatch(addExpense({description: 'coffee', amount: '10', note
 store.dispatch(removeExpense({id: ex1.expense.id}))
 
 store.dispatch(editExpense(ex2.expense.id, {amount: 14}))
+
+store.dispatch(setKeywordFilter('coffee'))
+store.dispatch(setKeywordFilter())
 
 ReactDOM.render(
   <React.StrictMode>
