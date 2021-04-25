@@ -5,7 +5,16 @@ import App from './App';
 import budgetStore from './store/budgetStore';
 
 const store = budgetStore();
-console.log(store)
+
+store.subscribe(() => {
+  console.log(store.getState())
+})
+
+
+store.dispatch({
+  type: 'INC',
+  incBy: 10
+});
 
 
 
