@@ -18,7 +18,7 @@ const ex2 = store.dispatch(addExpense({description: 'coffee', amount: '10', note
 
 // store.dispatch(editExpense(ex2.expense.id, {amount: 14}))
 
-store.dispatch(setKeywordFilter('coffee'))
+store.dispatch(setKeywordFilter(''))
 // store.dispatch(setKeywordFilter())
 
 store.dispatch(sortByAmount())
