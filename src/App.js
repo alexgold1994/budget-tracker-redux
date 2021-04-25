@@ -15,7 +15,7 @@ const App = () => {
        <Switch>
           <Route path="/" exact component={BudgetTrackerApp}/>
           <Route path="/add" component={BudgetAdd}/>
-          <Route path="/edit" component={BudgetEdit}/>
+          <Route path="/edit/:id" component={BudgetEdit}/>
           <Route  component={PageNotFound}/>
        </Switch>
 
