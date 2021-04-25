@@ -11,8 +11,6 @@ import getFilterData from './selectors/filteredExpensesData';
 
 const store = budgetStore();
 
-
-
  const ex1 = store.dispatch(addExpense({description: 'cyber truck', amount: '1000', createdAt: moment().add(5, 'day').format('L')}))
 const ex2 = store.dispatch(addExpense({description: 'coffee', amount: '10', note: 'for one coffee', createdAt: moment().add(2, 'day').format('L')}))
 
@@ -20,7 +18,7 @@ const ex2 = store.dispatch(addExpense({description: 'coffee', amount: '10', note
 
 // store.dispatch(editExpense(ex2.expense.id, {amount: 14}))
 
-// store.dispatch(setKeywordFilter('coffee'))
+store.dispatch(setKeywordFilter('coffee'))
 // store.dispatch(setKeywordFilter())
 
 store.dispatch(sortByAmount())
