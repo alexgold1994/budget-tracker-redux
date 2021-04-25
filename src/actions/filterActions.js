@@ -16,3 +16,16 @@ export const sortByDate = () => {
         type: 'SORT_BY_DATE',
 }
 }
+export const setStartDate = (startDate) => {
+    return {
+        type: 'SET_START_DATE',
+        startDate
+}
+}
+
+export const setEndtDate = (endDate) => {
+    return {
+        type: 'SET_END_DATE',
+        endDate
+}
+}
