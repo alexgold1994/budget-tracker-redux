@@ -1,38 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Provider} from "react-redux";
 import './index.css';
 import App from './App';
 import budgetStore from './store/budgetStore';
 import {addExpense, removeExpense, editExpense} from './actions/budgetActions';
 import {setKeywordFilter, sortByAmount, sortByDate, setEndtDate, setStartDate } from './actions/filterActions';
 import moment from 'moment';
+import getFilterData from './selectors/filteredExpensesData';
 
 const store = budgetStore();
 
-const getFilterData = (expenses, filters) => {
-  return expenses.filter((expense) => {
-    const  isDateRange = moment(expense.createdAt).isBetween(filters.startDate, filters.endDate)
-    const keywordFound = expense.description.toLowerCase().includes(filters.keyword.toLowerCase())    
-    return isDateRange && keywordFound
-  }).sort((a, b) => {
-    if (filters.sortBy === 'date')
-      {
-        return moment(b.createdAt) - moment(a.createdAt)
-      }
-    else if (filters.sortBy === 'amount')
-      {
-        return b.amount < a.amount ? 1 : -1
-      }
-  })
-  
-}
-
-store.subscribe(() => {
-  const state = store.getState();
-  const data = getFilterData(state.expenses, state.filters)
-
-  console.log(data);
-})
 
 
  const ex1 = store.dispatch(addExpense({description: 'cyber truck', amount: '1000', createdAt: moment().add(5, 'day').format('L')}))
@@ -51,14 +29,20 @@ store.dispatch(sortByDate())
 store.dispatch(setStartDate(moment().format('L')))
 store.dispatch(setEndtDate(moment().add(10, 'day').format('L')))
 
+store.subscribe(() => {
+  const state = store.getState();
+  const data = getFilterData(state.expenses, state.filters)
+  console.log(data);
+})
 
-
-
+const storeProvider = (
+  <Provider store={store}>
+    <App />
+  </Provider>
+)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+ storeProvider ,
   document.getElementById('root')
 );
 
