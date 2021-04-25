@@ -27,14 +27,22 @@ export const startAddExpense = (expenseData = {}) => {
             }));
         })
     }
-};
+}
 
 export const removeExpense = ({id}) => {
     return {
         type: 'REMOVE_EXPENSE',
         id
     }
-};
+}
+
+export const startRemoveExpense = ({id}) => {
+    return (dispatch) => {
+        return database.ref(`expenses/${id}`).remove().then(() =>{
+            dispatch(removeExpense({id}));
+        })
+    }
+}
 
 export const editExpense = (id, updates) => {
     return {
@@ -42,8 +50,10 @@ export const editExpense = (id, updates) => {
         id,
         updates
     }
-};
+}
 
+
+//For redux store
 export const setExpenses = (expenses) => {
     return {
         type: 'SET_EXPENSES',
@@ -51,7 +61,7 @@ export const setExpenses = (expenses) => {
     }
 };
 
-
+//Firebase + redux
 export const startSetExpenses = () => {
     return (dispatch) => {
         return database.ref('expenses').once('value').then((snapshot) => {
