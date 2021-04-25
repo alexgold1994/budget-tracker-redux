@@ -1,20 +1,6 @@
 import { v4 as uuid } from 'uuid';
 
 
-const stateDemo = {
-    epenses: [{
-        id: '123',
-        description: 'Truck',
-        amount: '',
-        createAt: 0
-    }],
-    filters: {
-        keyword: 'rent',
-        sortby: 'amount',
-        startDate: undefined,
-        endDate: undefined
-    }
-}
 
 export const addExpense = ({
     description = '',
