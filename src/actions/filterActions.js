@@ -4,3 +4,15 @@ export const setKeywordFilter = (keyword = '') => {
         keyword
     }
 }
+
+export const sortByAmount = () => {
+    return {
+        type: 'SORT_BY_AMOUNT',
+    }
+}
+
+export const sortByDate = () => {
+    return {
+        type: 'SORT_BY_DATE',
+}
+}
