@@ -25,7 +25,7 @@ store.dispatch(sortByAmount())
 store.dispatch(sortByDate()) 
 
 store.dispatch(setStartDate(moment().format('L')))
-store.dispatch(setEndtDate(moment().add(10, 'day').format('L')))
+store.dispatch(setEndtDate(moment().add(365, 'days').format('L')))
 
 store.subscribe(() => {
   const state = store.getState();
