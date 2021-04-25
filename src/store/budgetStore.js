@@ -1,6 +1,8 @@
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
 import budgetReducer from '../reducers/budgetReducer';
 import filterReducer from '../reducers/filterReducer';
+import thunk from 'redux-thunk';
+import App from "../App";
 
 
 
@@ -10,7 +12,9 @@ import filterReducer from '../reducers/filterReducer';
             expenses: budgetReducer,
             filters: filterReducer 
 
-        }));
+        }),
+            applyMiddleware(thunk));
+       
     return store
 }
 

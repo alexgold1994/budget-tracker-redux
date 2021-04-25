@@ -4,15 +4,11 @@ import {Provider} from "react-redux";
 import './index.css';
 import App from './App';
 import budgetStore from './store/budgetStore';
-import {addExpense, removeExpense, editExpense} from './actions/budgetActions';
+import {addExpense} from './actions/budgetActions';
 import moment from 'moment';
 import getFilterData from './selectors/filteredExpensesData';
 
 const store = budgetStore();
-
- const ex1 = store.dispatch(addExpense({description: 'cyber truck', amount: '1000', createdAt: moment().add(5, 'day').format('L')}))
-const ex2 = store.dispatch(addExpense({description: 'coffee', amount: '10', note: 'for one coffee', createdAt: moment().add(1, 'day').format('L')}))
-
 
 
 store.subscribe(() => {
