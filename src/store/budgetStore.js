@@ -2,7 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import budgetReducer from '../reducers/budgetReducer';
 import filterReducer from '../reducers/filterReducer';
 import thunk from 'redux-thunk';
-
+import authReducer from '../reducers/authReducer';
 
 
 
@@ -10,8 +10,8 @@ import thunk from 'redux-thunk';
     const store = createStore(combineReducers({
 
             expenses: budgetReducer,
-            filters: filterReducer 
-
+            filters: filterReducer,            
+            auth: authReducer 
         }),
             applyMiddleware(thunk));
        

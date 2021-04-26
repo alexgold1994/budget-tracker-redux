@@ -1,12 +1,21 @@
 import {NavLink } from "react-router-dom";
+import Logout from './Logout';
+import firebase from 'firebase';
+
+/* const currentUser = firebase.auth().currentUser;
+{currentUser.displayName} */
 
 const Header = () => {
     return ( 
-      <header>
-        <h1>Budget Tracker App</h1>
-        <NavLink exact activeClassName="is-active" to="/">Home</NavLink>
-        <NavLink activeClassName="is-active" to="/add">Add</NavLink>
-      </header>
+
+      <div>
+      <ul>
+        <li className='center'></li>
+        <li><NavLink exact activeClassName="is-active right brand-log"  to="/dashboard">Home</NavLink></li>
+        <li><NavLink activeClassName="is-active right" to="/add">Add</NavLink></li>
+      </ul>
+      <Logout/>
+      </div>
      );
   }
 

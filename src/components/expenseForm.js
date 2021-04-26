@@ -47,10 +47,13 @@ export default class ExpenseForm extends Component {
     }
 
     render() {
+            
         return (
-            <div>
+                <div>
                 <form className='ExpenseListItem' onSubmit = {this.onSubmit}>
+                    <label htmlFor="text">Description</label>
                     <input type="text" placeholder='Description' value={this.state.description} onChange={this.onDescriptionChange}/>
+                    <label htmlFor="text">Amount</label>
                     <input type="number" placeholder='Amount (number)' value={this.state.amount} onChange={this.onAmountChange}/>
                     
                     <SingleDatePicker

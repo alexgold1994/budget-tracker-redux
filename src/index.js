@@ -2,12 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from "react-redux";
 import './index.css';
-import App from './App';
+import App, {history} from './App';
 import budgetStore from './store/budgetStore';
-import getFilterData from './selectors/filteredExpensesData';
 import {startSetExpenses} from './actions/budgetActions';
+import firebase from './firebase/firebase';
+import {login, logout} from './actions/auth';
+
 
 const store = budgetStore();
+
+
 
 /* 
 store.subscribe(() => {
@@ -15,7 +19,9 @@ store.subscribe(() => {
   const data = getFilterData(state.expenses, state.filters)
   console.log(data);
 }) */
-
+function refreshPage(){ 
+  window.location.reload(); 
+}
 
 const storeProvider = (
   <Provider store={store}>
@@ -23,13 +29,35 @@ const storeProvider = (
   </Provider>
 )
 
+
+let hasRendered = false;
+const renderApp = () => {
+    if(!hasRendered){
+      ReactDOM.render(storeProvider , document.getElementById('root'));
+        hasRendered = true
+    }
+}
+
 ReactDOM.render(<p>Loading...</p> , document.getElementById('root'));
 
-store.dispatch(startSetExpenses()).then(() => {
-  ReactDOM.render(storeProvider , document.getElementById('root'));
+
+
+firebase.auth().onAuthStateChanged((user) => {
+  if(user){
+      store.dispatch(login(user.uid));
+      store.dispatch(startSetExpenses()).then(() => {
+          renderApp();
+          if(history.location.pathname === '/'){
+              history.push('/dashboard');
+              refreshPage();
+          }
+      });       
+  }else{
+      store.dispatch(logout());
+      renderApp();
+      history.push('/') 
+  }
 })
-
-
 
 
 

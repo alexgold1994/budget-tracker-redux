@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background: #ffffff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -13,16 +14,52 @@ code {
 }
 
 
+
 .is-active {
   font-weight: bold;
   color: rgb(184, 0, 31);
 }
 
+.headTitle {
+  text-align: center;
+}
+
 .ExpenseListItem {
+  margin: 0 auto;
   display: flex;
   align-items: center;
   flex-direction: column;
   border: rgb(15, 0, 148) 1px solid;
   max-width: 400px;
-  background-color: cornsilk;
+  background-color: rgb(255, 255, 255);
 }
+
+  /* label color */
+  .input-field label {
+    color: #000;
+  }
+  /* label focus color */
+  .input-field input[type=text]:focus + label {
+    color: #000;
+  }
+  /* label underline focus color */
+  .input-field input[type=text]:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* valid color */
+  .input-field input[type=text].valid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* invalid color */
+  .input-field input[type=text].invalid {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #000;
+  }
+
+  

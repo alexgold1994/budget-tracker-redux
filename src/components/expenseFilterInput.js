@@ -18,27 +18,35 @@ class ExpenseFilterInput extends Component {
     
     render (props) {
         return (
-            <div>
+            <div className='row '>
             <input
+                className='input-field  col  s12 m6 l4 center-align'
+                placeholder='enter keyword'
                 type="text" 
                 value={this.props.filters.keyword} 
                 onChange={(e) => {
                     this.props.dispatch(setKeywordFilter(e.target.value))
                 }}
             />
-            <select
-                value={this.props.filters.sortBy}
-                onChange={(e) => {
-                    if (e.target.value === 'date') {
-                        this.props.dispatch(sortByDate());
-                    }else if (e.target.value === 'amount'){
-                        this.props.dispatch(sortByAmount());
-                    }
-                }}
-            >
-                <option value="date">Date</option>
-                <option value="amount">Amount</option>
-            </select>
+
+            <div className="input-field col s12 m6 l3">
+                <select            
+                    className='browser-default'
+                    value={this.props.filters.sortBy}
+                    onChange={(e) => {
+                        if (e.target.value === 'date') {
+                            this.props.dispatch(sortByDate());
+                        }else if (e.target.value === 'amount'){
+                            this.props.dispatch(sortByAmount());
+                        }
+                    }}
+                >   <option value="" disabled selected>Filter by data/amount</option>
+                    <option value="date">Date</option>
+                    <option value="amount">Amount</option>
+                </select>
+                
+            </div>
+            <div className="input-field col s12 m6 l3">
             <DateRangePicker
                 startDate={this.props.filters.startDate} 
                 endDate={this.props.filters.endDate} 
@@ -49,7 +57,7 @@ class ExpenseFilterInput extends Component {
                 isOutsideRange={() => false}
                 showClearDates={true}
              />
-    
+            </div>
         </div>
         )
     }

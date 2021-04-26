@@ -6,7 +6,8 @@ import {startEditExpense} from '../actions/budgetActions';
 const BudgetEdit = (props) => {
   console.log(props.expense)
   return (
-      <div>BudgetEdit
+      <div>
+        <h1 className='headTitle'>Budget Edit </h1>
         <ExpenseForm
           expense={props.expense}
           onSubmit={(expense) => {

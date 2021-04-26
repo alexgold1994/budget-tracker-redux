@@ -6,10 +6,10 @@ import {startAddExpense} from '../actions/budgetActions';
 const BudgetAdd = (props) => {
     return (
       <div>
-        BudgetAdd
+        <h1 className='headTitle'> Add Budget</h1>
         <ExpenseForm onSubmit={(expense) => {
           props.dispatch(startAddExpense(expense));
-          props.history.push('/')
+          props.history.push('/dashboard')
         }}/>
       </div>
 

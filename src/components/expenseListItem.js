@@ -7,7 +7,7 @@ const ExpenseListItem = ({id, description, note, amount, createdAt, dispatch}) =
     <div className='ExpenseListItem'>
         
         <Link to={`/edit/${id}`}>
-            <h3>{description} - {createdAt}</h3>
+            <h5>{description} - {createdAt}</h5>
         </Link>
         <p>Amount: ${amount}</p>
         {note && <p>Note: {note}</p>}
