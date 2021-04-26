@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/* import React, { Component } from 'react'
 import firebase from 'firebase';
 
 export class UserName extends Component {
@@ -17,3 +17,4 @@ export class UserName extends Component {
 }
 
 export default UserName;
+ */
