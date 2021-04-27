@@ -7,6 +7,7 @@ import budgetStore from './store/budgetStore';
 import {startSetExpenses} from './actions/budgetActions';
 import firebase from './firebase/firebase';
 import {login, logout} from './actions/auth';
+import Loader from "react-loader-spinner";
 
 
 const store = budgetStore();
@@ -38,7 +39,13 @@ const renderApp = () => {
     }
 }
 
-ReactDOM.render(<p>Loading...</p> , document.getElementById('root'));
+ReactDOM.render(<Loader   
+  type="Puff"
+  color="#00BFFF"
+  height={300}
+  width={300}
+  timeout={3000} //3 secs
+/> , document.getElementById('root'));
 
 
 

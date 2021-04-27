@@ -7,6 +7,7 @@ import  PageNotFound  from "./components/pageNotFound";
 import Login from './components/Login';
 import Navbar from './components/layout/Navbar';
 import { createBrowserHistory } from 'history';
+import PrivateRoute from './routers/PrivateRoute';
 
 
 
@@ -19,9 +20,9 @@ const App = () => {
        <Navbar/>      
        <Switch>
            <Route path="/" exact component={Login}/>
-          <Route path="/dashboard" exact component={BudgetTrackerApp}/>
-          <Route path="/add" component={BudgetAdd}/>
-          <Route path="/edit/:id" component={BudgetEdit}/>
+          <PrivateRoute path="/dashboard" exact component={BudgetTrackerApp}/>
+          <PrivateRoute path="/add" component={BudgetAdd}/>
+          <PrivateRoute path="/edit/:id" component={BudgetEdit}/>
           <Route  component={PageNotFound}/>          
        </Switch>
      </div>

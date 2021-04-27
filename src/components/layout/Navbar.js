@@ -7,8 +7,8 @@ const Navbar = () => {
         <div>
             <nav className="nav-wrapper grey darken-3">
                 <div className="container">
-                    <Header/>                                 
                     
+                    <Header/>
                 </div>
                 
             </nav>
