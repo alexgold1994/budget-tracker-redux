@@ -20,9 +20,7 @@ store.subscribe(() => {
   const data = getFilterData(state.expenses, state.filters)
   console.log(data);
 }) */
-function refreshPage(){ 
-  window.location.reload(); 
-}
+
 
 const storeProvider = (
   <Provider store={store}>
@@ -56,7 +54,7 @@ firebase.auth().onAuthStateChanged((user) => {
           renderApp();
           if(history.location.pathname === '/'){
               history.push('/dashboard');
-              refreshPage();
+              
           }
       });       
   }else{
