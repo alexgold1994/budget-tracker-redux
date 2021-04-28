@@ -49,25 +49,45 @@ export default class ExpenseForm extends Component {
     render() {
             
         return (
-                <div>
-                <form className='ExpenseListItem' onSubmit = {this.onSubmit}>
-                    <label htmlFor="text">Description</label>
-                    <input type="text" placeholder='Description' value={this.state.description} onChange={this.onDescriptionChange}/>
-                    <label htmlFor="text">Amount</label>
-                    <input type="number" placeholder='Amount (number)' value={this.state.amount} onChange={this.onAmountChange}/>
-                    
-                    <SingleDatePicker
-                        date={this.state.createdAt} // momentPropTypes.momentObj or null
-                        onDateChange={date => this.setState({ createdAt: date })} // PropTypes.func.isRequired
-                        focused={this.state.focused} // PropTypes.bool
-                        onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
-                        numberOfMonths={1}
-                        isOutsideRange={() => false}                    
-                        />
-                    <textarea placeholder='Add note for expense' value={this.state.note} onChange={this.onNoteChange}></textarea>
-                    <button>Add Expense</button>
+            <div className="row">
+                <form className="col s12 l5 offset-l5 center " onSubmit = {this.onSubmit}>
+                        <div className="row">
+                        <div className="input-field col s6">
+                                        <input placeholder="" id="Description" type="text" className="validate"
+                                        value={this.state.description} onChange={this.onDescriptionChange}/>
+                                        <label className='active' htmlFor="Description">Description</label>
+                                </div>
+                        </div>     
+        
+                        <div className="row">
+                            <div className="input-field col s6">
+                                <input id="Amount" type="number" className="validate" value={this.state.amount} onChange={this.onAmountChange}/>
+                                <label className='active' htmlFor="Amount">Amount</label>
+                            </div>
+                        </div>
+        
+                    <div className='row'>                       
+                            <div className="input-field col s12 l12 pull-l3">
+                            <SingleDatePicker
+                                    date={this.state.createdAt} // momentPropTypes.momentObj or null
+                                    onDateChange={date => this.setState({ createdAt: date })} // PropTypes.func.isRequired
+                                    focused={this.state.focused} // PropTypes.bool
+                                    onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+                                    numberOfMonths={1}
+                                    isOutsideRange={() => false}                    
+                                    />
+
+                                </div>
+
+                                <div className="input-field col s6 l6">
+                                    <textarea placeholder='Add note for expense' value={this.state.note} onChange={this.onNoteChange}></textarea>
+                                    <button className="btn-floating btn-large waves-effect waves-purple"><i className="material-icons">add</i>Add Expense</button>
+                                </div>
+                    </div>
+
+
                 </form>
-            </div>
+        </div>
         );
     }
 }

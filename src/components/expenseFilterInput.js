@@ -19,17 +19,20 @@ class ExpenseFilterInput extends Component {
     render (props) {
         return (
             <div className='row '>
-            <input
-                className='input-field  col  s12 m6 l4 center-align'
-                placeholder='enter keyword'
-                type="text" 
-                value={this.props.filters.keyword} 
-                onChange={(e) => {
-                    this.props.dispatch(setKeywordFilter(e.target.value))
-                }}
-            />
 
-            <div className="input-field col s12 m6 l3">
+            <div className= 'col  s12 m6 l2 offset-l3'>
+                <input
+                    className='input-field  '
+                    placeholder='enter keyword'
+                    type="text" 
+                    value={this.props.filters.keyword} 
+                    onChange={(e) => {
+                        this.props.dispatch(setKeywordFilter(e.target.value))
+                    }}
+                />
+            </div>
+
+            <div className="input-field col s12 m6 l1">
                 <select            
                     className='browser-default'
                     value={this.props.filters.sortBy}

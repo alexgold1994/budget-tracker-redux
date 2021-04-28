@@ -12,7 +12,7 @@ const Header = () => {
       <ul>
         <li className='center'></li>
         <li><NavLink exact activeClassName="is-active right brand-log"  to="/dashboard">Home</NavLink></li>
-        <li><NavLink activeClassName="is-active right" to="/add">Add</NavLink></li>
+        <li><NavLink activeClassName="is-active right" to="/add"><i className="material-icons left">add_circle</i>Add</NavLink></li>
       </ul>
       <Logout/>
       </div>
