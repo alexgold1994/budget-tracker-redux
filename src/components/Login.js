@@ -4,15 +4,19 @@ import {startLogin} from '../actions/auth';
 
 export const Login = ({startLogin}) => {
     return (
-        <div className="center ">
+        <div className="btn-login center">
+                              
             <button
-            className = 'btn-large pink lighten-1 z-depth-0'
-            onClick={startLogin}>
+            className = 'btn-large waves-effect waves-purple '
+            onClick={startLogin}>                
                  <i className="material-icons right">send</i>
                  Login</button>
+                 
 
                  
-        </div> 
+      
+        </div>
+
     )
 }
 

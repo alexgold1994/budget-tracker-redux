@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from '../header';
-//import UserName from './userName';
+import UserName from './userName';
 
 const Navbar = () => {
     return (
@@ -9,6 +9,7 @@ const Navbar = () => {
                 <div className="container">
                     
                     <Header/>
+                    <UserName/>
                 </div>
                 
             </nav>

@@ -13,7 +13,21 @@ code {
     monospace;
 }
 
+.welcome {
+  font-weight: bold;
+}
 
+.btn-login {   
+  margin: 0px;
+padding:0px;
+float: left;
+width:100%;
+position:absolute;
+top: 40%;
+transform: translateY(-50%) translateX(-50%);
+left:50%;
+
+}
 
 .is-active {
   font-weight: bold;
@@ -24,15 +38,6 @@ code {
   text-align: center;
 }
 
-.ExpenseListItem {
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  border: rgb(0, 0, 0) 1px solid;
-  max-width: 400px;
-  background-color: rgb(255, 255, 255);
-}
 
   /* label color */
   .input-field label {
