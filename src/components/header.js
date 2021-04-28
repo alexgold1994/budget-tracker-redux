@@ -1,6 +1,6 @@
 import {NavLink } from "react-router-dom";
 import Logout from './Logout';
-import firebase from 'firebase';
+//import firebase from 'firebase';
 
 /* const currentUser = firebase.auth().currentUser;
 {currentUser.displayName} */
